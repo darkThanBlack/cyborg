@@ -232,8 +232,7 @@ extension CGFloat {
                 var next: UnsafeMutablePointer<Int8>? = buffer
                 for i in 0..<count {
                     var current = Int8(xmlString.underlying.advanced(by: i).pointee)
-                    buffer.advanced(by: i).assign(from: &current,
-                                                  count: 1)
+                    buffer.advanced(by: i).update(from: &current, count: 1)
                 }
                 let result = strtod(buffer, &next)
                 if result == 0.0 && next == buffer {

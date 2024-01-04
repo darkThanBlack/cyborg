@@ -101,7 +101,7 @@ public extension VectorDrawable {
                         error.withUnsafeBufferPointer { (buffer) in
                             if let address = buffer.baseAddress {
                                 let e = UnsafeMutablePointer<CChar>.allocate(capacity: error.count)
-                                e.assign(from: address, count: error.count)
+                                e.update(from: address, count: error.count)
                                 xmlError.storeBytes(of: e, as: UnsafeMutablePointer<CChar>.self)
                             }
                         }
